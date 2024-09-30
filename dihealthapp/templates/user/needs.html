@@ -1,0 +1,33 @@
+{%extends "myincludes/base_index.html"%}
+
+{%block content%}
+        
+        <div class="row my_home_body">
+            <div class="col-md-12">
+                <form action="" method="post">
+                    <p class="mylabelhead">Hi, How are you doing today? 
+                        Would you like to update your body goal/health disorder.
+                    </p>
+                    <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+                    <div class="row myneeds1">
+                        {% for diet in diets%}
+                        <div class="col-md-6 my-2">
+                        <input type="radio" name="needs" id="id{{diet.id}}" value="{{diet.id}}">
+                        <label for="id{{diet.id}}" class="me-1">{{diet.name}}</label>
+                        </div>
+                        {%endfor%}
+
+                        
+                        <div class="col-md-12">
+                            <button class="btn btn-calory col-md-4 offset-md-4 my-3">SUBMIT</button>
+                        </div>
+
+
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        
+{%endblock%}
+ 

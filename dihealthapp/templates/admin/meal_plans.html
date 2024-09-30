@@ -1,0 +1,155 @@
+{%extends "myincludes/base_index.html"%}
+
+{%block content%}
+        <div class="row head">
+
+            <div class="col-md-2 m-3 mysidebar ">
+                <div class="d-flex flex-column flex-shrink-0 p-2 " style="width: 200px; min-height: 400px;">
+                    <ul class="nav nav-pills flex-column mb-auto mysidebaradmin">
+                      <li class="">
+                            <a href="/admin/home/" class="nav-link ">
+                                <i class="fa fa-dashboard"></i>
+                              Dashboard
+                            </a>
+                      </li>
+                      <li>
+                        <a href="/admin/users/" class="nav-link">
+                            <i class="fa-solid fa-user"></i>
+                          View users
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/admin/meal/" class="nav-link activee">
+                            <i class="fa-solid fa-bowl-food text-center m-auto p-auto"></i>
+                          View meal plans
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/admin/diet/" class="nav-link">
+                            <i class="fa fa-table"></i>
+                        View Diets
+                        </a>
+                      </li>
+                      
+
+                      <li>
+                        <a href='/admin/profile/' class="nav-link">
+                            <i class="fa-solid fa-user"></i>
+                       View Admin Profile          
+                        </a>
+                      </li>
+
+
+                      <li>
+                        <a href='/admin/subscription/' class="nav-link">
+                            <i class="fa-regular fa-clipboard"></i>
+                          View all Subscriptions
+                        </a>
+                      </li>
+                      
+                     
+                      <li>
+                        <a href='/admin/payments/' class="nav-link">
+                            <i class="fa-solid fa-chart-gantt"></i>
+                        View all payment          
+                        </a>
+                      </li>
+                      
+
+                      <li>
+                        <a href="#" class="nav-link">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        Search App          
+                        </a>
+                      </li>
+                      
+                      <li>
+                        <a href="#" class="nav-link">
+                            <i class="fa fa-power-off"></i>
+                          Logout
+                        </a>
+                      </li>
+                    </ul>
+                 
+                </div>
+            </div>
+            <div class="col-md-9 my-3 ms-2 p-auto">
+              <h3 class="text-center">MEALS</h3>
+
+              <p>Total meal added:- <span id="mealcolor">{{meals|count}}</span></p>
+
+              <div class="row py-2 table-responsive-sm">
+                <table class="table table-custom table-stripped table_admin">
+                    <tr>
+                        <th>S/N</th>
+                        <th>DIET TYPE</th>
+                        <th>APPETIZER</th>
+                        <th>MAIN COURSE</th>
+                        <th>DESSERT</th>
+                        <th>MEAL TIME</th>
+                        <th>STATUS</th>
+                        <th>ACTIONS</th>
+
+                    </tr>
+                    {% for meal in meals%}
+                    <tr>
+                        <td>{{loop.index}}</td>
+                        <td>{{meal.diet.name}}</td>
+                        <td>{{meal.appetizer}}</td>
+                        <td>{{meal.maincourse}}</td>
+                        <td>{{meal.desert}}</td>
+                        <td>{{meal.time}}</td>
+                        <td id="show{{meal.id}}">{{meal.status}}</td>
+                        <td>
+                          <a href='/admin/meal/edit/{{meal.id}}/' class="btn btn-warning m-1">Edit</a><br>
+                          {%if meal.status=="approved"%}
+                          <button id="pend{{meal.id}}" class="btn btn-danger">Pend</button>
+                          {%else%}
+                          <button id="approve{{meal.id}}" class="btn btn-success">Approve</button>
+                          {%endif%}
+                        </td>
+                    </tr>
+                    {%endfor%}
+                    
+                </table>
+                <a href='/admin/meal/update/' class="btn btn-custom">Add Meal to Diet</a>
+            </div>
+              
+          </div>
+          <div class="col-md-8">
+              
+          </div>
+        </div>
+        
+{%endblock%}
+{% block query%}
+{% for meal in meals%}
+       {%if meal.status=='approved'%}
+       $('#pend{{meal.id}}').click(function(){
+        if(confirm("Are you sure you want to pend this meal status?")){
+          var data2send={id:{{meal.id}},csrf_token:"{{csrf_token()}}"}
+          $.post('/ajax/meal/pend/',data2send,function(res){
+            $('#pend{{meal.id}}').text(res)
+            $('#show{{meal.id}}').text('pending');
+          }
+          ); 
+        }
+
+
+       }) 
+       {%else%}
+       $('#approve{{meal.id}}').click(function(){
+        if(confirm("Are you sure you want to approve this meal status?")){
+          var data2send={id:{{meal.id}},csrf_token:"{{csrf_token()}}"}
+          $.post('/ajax/meal/approve/',data2send,function(res){
+            $('#approve{{meal.id}}').text(res)
+            $('#show{{meal.id}}').text('approved');
+          }
+          ); 
+        }
+
+
+       })
+       {%endif%}
+{%endfor%}
+{%endblock query%}

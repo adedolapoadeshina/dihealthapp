@@ -1,0 +1,23 @@
+{%extends "myincludes/base_index.html"%}
+{%block content%}
+        <div class="row head">
+            <div class="col subbox">
+            <h2 class="text-center">Confirm Subcription</h2>
+            <hr>
+            <p> Name: {{user.firstname}} {{user.lastname}}</p>
+            <p> Subscription type: {{pay.subscription.name}}</p>
+            <p> Subscription amount: {{pay.subscription.amount}}</p>
+            <p> Ref No: {{pay.ref}}</p>
+            
+        </div>
+        <br>
+
+        <form method="post" action="/subscribe/paystack/">
+            <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+            <br>
+            <button type="submit" class="btn btn-calory">Confirm</button>
+        </form>
+        
+
+        
+{%endblock%}

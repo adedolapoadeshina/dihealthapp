@@ -1,0 +1,119 @@
+
+{% extends "myincludes/base_index.html" %}
+{%block content%}
+        <div class="row head">
+
+            <div class="col-md-3 m-3 mysidebar">
+                  
+                <div class="d-flex flex-column flex-shrink-0 p-3 " style="width: 280px; min-height: 400px;">
+
+                    <p class="sidebarhead">Hi, Adedolapo</p>
+                    <ul class="nav nav-pills flex-column mb-auto mysidebar">
+                      <li class="">
+                        <a href="/admin/home/" class="nav-link ">
+                            <i class="fa fa-dashboard"></i>
+                          Dashboard
+                        </a>
+                  </li>
+                  <li>
+                    <a href="/admin/users/" class="nav-link">
+                        <i class="fa-solid fa-user"></i>
+                      View users
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/admin/meal/" class="nav-link">
+                        <i class="fa-solid fa-bowl-food text-center m-auto p-auto"></i>
+                      View meal plans
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/admin/diet/" class="nav-link">
+                        <i class="fa fa-table"></i>
+                    View Diets
+                    </a>
+                  </li>
+                  
+
+                  <li>
+                    <a href='/admin/profile/' class="nav-link activee">
+                        <i class="fa-solid fa-user"></i>
+                   View Admin Profile          
+                    </a>
+                  </li>
+
+
+                  <li>
+                    <a href='/admin/subscription/' class="nav-link">
+                        <i class="fa-regular fa-clipboard"></i>
+                      View all Subscriptions
+                    </a>
+                  </li>
+                  
+                 
+                  <li>
+                    <a href='/admin/payments/' class="nav-link">
+                        <i class="fa-solid fa-chart-gantt"></i>
+                    View all payment          
+                    </a>
+                  </li>
+                  
+
+                  <li>
+                    <a href="#" class="nav-link">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    Search App          
+                    </a>
+                  </li>
+                  
+                  <li>
+                    <a href="#" class="nav-link">
+                        <i class="fa fa-power-off"></i>
+                      Logout
+                    </a>
+                  </li>
+                </ul>
+                 
+                </div>
+            </div>
+            <div class="col-md-8 homeback">
+                <div class="row userprofile">
+                    <div class="col-md-2 m-2 profilehead">
+                        <h3>ADMIN PROFILE</h3>
+                    </div>
+                    <div class="col-md-2 m-2   profilepic">
+                      <img src="/static/{{admin.profilepic}}" alt="profilepic" class="img-fluid">
+                    </div>
+                    <div class="col-md-6 m-3 p-4 fs-4">
+                        <p>NAME:<span>{{admin.name}}</span> </p>
+                        {%if admin.gender=="female"%}
+                        <p>SEX:<span> Female</span></p>
+                        {%else%}
+                        <p>SEX:<span> Male</span></p>
+                        {%endif%}
+        
+                        <a href="/admin/{{admin.id}}/update/" class="btn btn-calory">Edit Profile</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="row my-2">
+                        <div class="col profileoption">
+                            <a href="/admin/meal/added/{{admin.id}}/" class="text-decoration-none sub"><p>View Meals Added</p></a>
+                        </div>
+                    </div>
+                    <div class="row my-2">
+                      <div class="col profileoption">
+                          <a href="/admin/diet/" class="text-decoration-none sub"><p>Add Diet</p></a>
+                          
+                      </div>
+                  </div>
+                  <div class="row my-2">
+                      <div class="col profileoption">
+                          <a href="/admin/meal/update/" class="text-decoration-none prorec"><p>Add meal</p></a>
+                      </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+        
+{%endblock%}

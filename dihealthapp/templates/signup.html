@@ -1,0 +1,120 @@
+{%with messages=get_flashed_messages()%}
+    {%if messages%}
+      {%for message in messages%}
+        <div class="row">
+          <p class="alert alert-success">{{message}}</p>
+        </div>
+      {%endfor%}
+    {%endif%}
+  {%endwith%}
+{%include "myincludes/header.html"%}
+        <div class="row sign_banner">
+        <div class="col-md-12">
+            <h3 class="text-center"> SIGN UP  </h3>
+            <p class="text-center">To get started, fill all the input below:</p>
+        </div>
+        <div class="col-md-8 offset-md-3">
+            <form method="post"class="my-auto">
+                {{ form.csrf_token }}
+                <div class="form-floating mb-2 col-8">
+                    {{form.firstname(class_="form-control text-dark", placeholder="Firstname")}}
+                    {{form.firstname.label (class_='form-label')}}
+                    {%if form.confirmpassword.errors%}
+                        {%for error in form.confirmpassword.errors%}
+                            <span style="color:red">{{error}}</span>
+                        {%endfor%}
+                    {%endif%}
+                    {#<input type="text" id="fname" class="form-control text-dark" placeholder="Firstname">
+                    <label for="fname" class="form-label">FIRST NAME</label>#}
+                </div>
+
+                <div class="form-floating mb-2 col-8">
+                    {{form.lastname(class_="form-control text-dark", placeholder="Firstname")}}
+                    {{form.lastname.label (class_='form-label')}}
+                    {%if form.confirmpassword.errors%}
+                        {%for error in form.confirmpassword.errors%}
+                            <span style="color:red">{{error}}</span>
+                        {%endfor%}
+                    {%endif%}
+                    {#<input type="text" id="lname" class="form-control" placeholder="Lastname">
+                    <label for="lname" class="form-label">LAST NAME</label>#}
+                </div>
+
+                <div class="form-floating mb-2 col-8">
+                    {{form.phone(class_="form-control text-dark", placeholder="Firstname")}}
+                    {{form.phone.label (class_='form-label')}}
+                    {%if form.confirmpassword.errors%}
+                        {%for error in form.confirmpassword.errors%}
+                            <span style="color:red">{{error}}</span>
+                        {%endfor%}
+                    {%endif%}
+                    {#<input type="text" id="pnumber" class="form-control" placeholder="Phone-number">
+                    <label for="pnumber" class="form-label">PHONE NO.</label>#}
+                </div>
+
+                <div class="form-floating mb-2 col-8">
+                    {{form.email(class_="form-control text-dark", placeholder="Firstname")}}
+                    {{form.email.label (class_='form-label')}}
+                    {%if form.confirmpassword.errors%}
+                        {%for error in form.confirmpassword.errors%}
+                            <span style="color:red">{{error}}</span>
+                        {%endfor%}
+                    {%endif%}
+                    {#<input type="text" id="email" class="form-control" placeholder="E-MAIL">
+                    <label for="email" class="form-label">E-MAIL</label>#}
+                </div>
+
+                <div class="form-floating mb-2 col-8">
+                    {{form.gender(class_="form-control text-dark", placeholder="Firstname")}}
+                    {{form.gender.label (class_='form-label')}}
+                    {%if form.confirmpassword.errors%}
+                        {%for error in form.confirmpassword.errors%}
+                            <span style="color:red">{{error}}</span>
+                        {%endfor%}
+                    {%endif%}
+                    {#<select name="gender" id="gender" class="form-select">
+                        <option value="">Please select your gender</option>
+                        <option value="female">Female</option>
+                        <option value="male">Male</option>
+                    </select>#}
+                </div>
+
+                <div class="form-floating mb-2 col-8">
+                    {{form.password(class_="form-control text-dark", placeholder="Firstname",id='pwd')}}
+                    {{form.password.label (class_='form-label')}}
+                    {%if form.confirmpassword.errors%}
+                        {%for error in form.confirmpassword.errors%}
+                            <span style="color:red">{{error}}</span>
+                        {%endfor%}
+                    {%endif%}
+                    {#<input type="password" id="pwd" class="form-control" placeholder="PASSWORD">
+                    <label for="pwd" class="form-label">PASSWORD</label>#}
+                </div>
+
+                <div class="form-floating mb-2 col-8">
+                    {{form.confirmpassword(class_="form-control text-dark", placeholder="Firstname",id="cpwd")}}
+                    {{form.confirmpassword.label (class_='form-label')}}
+                    {%if form.confirmpassword.errors%}
+                        {%for error in form.confirmpassword.errors%}
+                            <span style="color:red">{{error}}</span>
+                        {%endfor%}
+                    {%endif%}
+                    {#<input type="password" id="cpwd" class="form-control" placeholder="CONFIRM PASSWORD">
+                    <label for="cpwd" class="form-label">CONFIRM PASSWORD</label>#}
+                    <p id="pass_mismatch"></p>
+                    <button type="button" class="btn" id="show_pwd">Show password</button>
+                </div>
+                <div class="my-2">
+                    <input type="checkbox" id="terms" >check here to indicate that you have read and agreed
+                    with the terms of <a href="#">AWS customer agreement</a>
+                </div>
+                <div>
+                    {{form.submit(class="btn btn-custom mb-2" , id="submit")}}
+                    {#<button class="btn btn-outline-dark mb-2" id="submit" disabled>SUBMIT</button>#}
+                </div>
+                
+            </form>
+        </div>
+
+        </div>
+{% include "myincludes/footer.html"%}

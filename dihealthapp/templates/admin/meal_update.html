@@ -1,0 +1,60 @@
+{%extends "myincludes/base_index.html"%}
+{%block content%}
+<div class="row up_form">
+    <h2 class="text-center">UPDATE MEAL PLAN</h2>
+    <p class="text-primary" id="showupdate"></p>
+    <p class="text-danger" id="errupdate"></p>
+    <form id="mealForm" method='post'>
+        <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+        <div class="col-md-6 offset-md-3">
+            <div class="mx-2">
+                <label for="diet" class="form-label">DIET:</label>
+                <select name="diet" id="diet" class="form-control custom-select">
+                    {%for diet in diets%}
+                    <option value='{{diet.id}}'>{{diet.name}}</option>
+                    {%endfor%}
+                </select>
+            </div>
+            <div class="mx-2">
+                <label class="form-label" for="appert">Appetizer</label>
+                <textarea class="form-control" id="appert" name="appert"></textarea>
+            </div>
+            <div class="mx-2">
+                <label class="form-label" for="main">Main Course</label>
+                <textarea class="form-control" id="main" name="main"></textarea>
+            </div>
+            <div class="mx-2">
+                <label class="form-label" for="desert">Dessert</label>
+                <textarea class="form-control" id="desert" name="desert"></textarea>
+            </div>
+            <div class="mx-2">
+                <label class="form-label" for="drink">Drink</label>
+                <textarea class="form-control" id="drink" name="drink"></textarea>
+            </div>
+            <div class="mx-2">
+                <label class="form-label" for="note">Additional Note</label>
+                <textarea class="form-control" id="note" name="note"></textarea>
+            </div>
+            <div class="mx-2">
+                <label class="form-label" for="time">Time</label>
+                <select name="time" id="time" class="form-control">
+                    <option value="breakfast">Breakfast</option>
+                    <option value="lunch">Lunch</option>
+                    <option value="dinner">Dinner</option>
+                </select>
+            </div>
+            <div class="mx-2">
+                <label class="form-label" for="prop">Proportion</label>
+                <textarea class="form-control" id="prop" name="prop"></textarea>
+            </div>
+            <div class="m-2">
+                <button class="btn btn-calory col-4 id="updatemeal" offset-4">UPDATE</button>
+            </div>
+        </div>
+        
+    </form>
+
+
+    
+</div>
+{%endblock%}

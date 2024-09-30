@@ -1,0 +1,45 @@
+{%include "myincludes/header.html"%}
+        <div class="row log_banner">
+            <div class="col-md-12">
+                <h3 class="text-center"> LOG IN  </h3>
+            </div>
+            <div class="col-md-8 offset-md-3">
+              {%with messages=get_flashed_messages()%}
+              {%if messages%}
+                {%for message in messages%}
+                  <div class="row">
+                    <p class="alert alert-success col-8">{{message}}</p>
+                  </div>
+                {%endfor%}
+              {%endif%}
+            {%endwith%}
+                <form  method='post' class="my-auto">
+                    <div class="form-floating mb-2 col-8">
+                        {{form.csrf_token()}}
+                        {{form.email(class_="form-control",placeholder="E-mail")}}
+                        {{form.email.label(class_="form-label")}}
+                        {#<input type="text" id="email" class="form-control" placeholder="E-MAIL">
+                        <label for="email" class="form-label">E-MAIL</label>#}
+                    </div>
+
+                    <div class="form-floating mb-2 col-8">
+                        {{form.password(class_="form-control",placeholder="Password")}}
+                        {{form.password.label(class_="form-label")}}
+                        <a type="button" class="btn" id="show_pwd">Show password</a>
+                    </div>
+                    <div class="form-floating mb-2 col-8">
+                      {{form.usertype(class_="form-control")}}
+                      {{form.usertype.label(class_="form-label")}}
+                      
+                      
+                    </div>
+                    <div class="mb-2 col-8">
+                        {#<button class="btn btn-outline-dark mb-2" id="submit">SUBMIT</button>#}
+                        {{form.submit(class="btn btn-custom mb-2", id='submit')}}
+                    </div>
+                    
+                </form>
+            </div>
+
+        </div>
+{% include "myincludes/footer.html"%}

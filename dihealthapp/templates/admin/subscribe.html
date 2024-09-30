@@ -1,0 +1,133 @@
+{%extends "myincludes/base_index.html"%}
+
+{%block content%}
+        <div class="row head">
+
+            <div class="col-md-2 m-3 mysidebar ">
+                <div class="d-flex flex-column flex-shrink-0 p-2 " style="width: 200px; min-height: 400px;">
+                    <ul class="nav nav-pills flex-column mb-auto mysidebaradmin">
+                      <li class="">
+                            <a href="/admin/home/" class="nav-link ">
+                                <i class="fa fa-dashboard"></i>
+                              Dashboard
+                            </a>
+                      </li>
+                      <li>
+                        <a href="/admin/users/" class="nav-link">
+                            <i class="fa-solid fa-user"></i>
+                          View users
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/admin/meal/" class="nav-link">
+                            <i class="fa-solid fa-bowl-food text-center m-auto p-auto"></i>
+                          View meal plans
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/admin/diet/" class="nav-link">
+                            <i class="fa fa-table"></i>
+                        View Diets
+                        </a>
+                      </li>
+                      
+
+                      <li>
+                        <a href='/admin/profile/' class="nav-link">
+                            <i class="fa-solid fa-user"></i>
+                       View Admin Profile          
+                        </a>
+                      </li>
+
+
+                      <li>
+                        <a href='/admin/subscription/' class="nav-link activee">
+                            <i class="fa-regular fa-clipboard"></i>
+                          View all Subscriptions
+                        </a>
+                      </li>
+                      
+                     
+                      <li>
+                        <a href='/admin/payments/' class="nav-link">
+                            <i class="fa-solid fa-chart-gantt"></i>
+                        View all payment          
+                        </a>
+                      </li>
+                      
+
+                      <li>
+                        <a href="#" class="nav-link">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        Search App          
+                        </a>
+                      </li>
+                      
+                      <li>
+                        <a href="#" class="nav-link">
+                            <i class="fa fa-power-off"></i>
+                          Logout
+                        </a>
+                      </li>
+                    </ul>
+                 
+                </div>
+            </div>
+            <div class="col-md-9 m-3 ms-2 p-auto">
+              <h3 class="text-center">SUBSCRIBED USER</h3>
+
+              <div class="row p-2 table-responsive-sm">
+                <table class="table table-custom table-stripped table_admin">
+                    <tr>
+                        <th>S/N</th>
+                        <th>NAME</th>
+                        <th>REF NO.</th>
+                        <th>PLAN</th>
+                        <th>DATE</th>
+                        <th>STATUS</th>
+                        <th>ACTIONS</th>
+
+                    </tr>
+                    {% for payment in payment_all%}
+                    <tr>
+                        <td>{{loop.index}}</td>
+                        <td>{{payment.user.firstname}}</td>
+                        <td>{{payment.ref}}</td>
+                        <td>{{payment.subscription.name}}</td>
+                        <td>{{payment.payment_date.strftime('%B %d %Y')}}</td>
+                        <td>{{payment.user.status}}</td>
+                        <td>
+                          
+                          <button type="button" id="cancel{{loop.index}}" class="btn btn-danger">Cancel</button>
+
+                        </td>
+                    </tr>
+                    {%endfor%}
+                    
+                </table>
+            </div>
+              
+          </div>
+          <div class="col-md-8">
+              
+          </div>
+        </div>
+        
+{%endblock%}
+{% block query%}
+{% for payment in payment_all%}
+       $('#cancel{{loop.index}}').click(function(){
+        if(confirm("cancelling this subscription will also de-activate the user subscription.Do you want to continue?")){
+          var data2send={id:{{loop.index}},csrf_token:"{{csrf_token()}}"}
+          $.post('/ajax/subscribe/cancel/',data2send,function(res){
+            $('#cancel{{loop.index}}').text(res);
+          }
+          ); 
+        }
+        alert('User with id:{{payment.user.id}} has been deactivated, to activate again, please visit the user or payment menu')
+
+
+       }) 
+       
+{%endfor%}
+{%endblock query%}

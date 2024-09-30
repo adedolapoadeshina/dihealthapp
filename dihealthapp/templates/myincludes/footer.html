@@ -1,0 +1,46 @@
+<div class="row footer">
+    <div class="col-md-3 mx-3">
+      <p>&copy; 2024</p>
+      <p>All right reserved.</p>
+    </div>
+    <div class="col-md-2 mx-3">
+
+    </div>
+    <div class="col-md-2 mx-3">
+
+    </div>
+    <div class="col-md-3 mx-3">
+      <p>di-health@gmail.com</p>
+      <p>08123456789</p>
+      <p>Lagos, Nigeria</p>
+    </div>
+</div>
+</div>
+
+</body>
+<script src="{{url_for('static',filename='jquery.min.js')}}"></script>
+<script>
+$(document).ready(function(){
+$('#submit_news').click(function(){
+  
+  var firstName=$('#fname').val();
+  var email=$('#email').val();
+  if( firstName.length>0 && email.length>4){
+      $('#registerMe').text('Registration Successful! we look forward to sharing our great tips with you');
+      $('#fname').val("");
+      $('#email').val("");
+     // $('#submit_news').attr('disabled', true)
+      }else if(firstName.length>0 && email.length<4){
+        $('#registerMe').text('Please Enter a valid e-mail address');
+      }else{
+        $('#registerMe').text('To ensure submission, please fill all fields');
+      }
+})
+$('#close_news').click(function(){
+      $('#registerMe').text('');
+})
+})
+</script>
+
+<script src="{{url_for('static',filename='/bootstrap/js/bootstrap.bundle.js')}}"></script>
+</html>

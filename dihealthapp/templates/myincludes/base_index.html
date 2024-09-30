@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="57x57" href="{{url_for('static',filename='bootstrap/css/bootstrap.css')}}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{{url_for('static',filename='static/di_health_icon/apple-icon-60x60.png')}}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{url_for('static',filename='di_health_icon/apple-icon-72x72.png')}}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{url_for('static',filename='di_health_icon/apple-icon-76x76.png')}}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{url_for('static',filename='di_health_icon/apple-icon-114x114.png')}}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{{url_for('static',filename='di_health_icon/apple-icon-120x120.png')}}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{{url_for('static',filename='di_health_icon/apple-icon-144x144.png')}}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{url_for('static',filename='di_health_icon/apple-icon-152x152.png')}}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{url_for('static',filename='di_health_icon/apple-icon-152x152.png')}}">
+    <link rel="icon" type="image/png" sizes="192x192"  href="{{url_for('static',filename='di_health_icon/apple-icon-192x192.png')}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{url_for('static',filename='di_health_icon/favicon-32x32.png')}}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{url_for('static',filename='di_health_icon/favicon-96x96.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{url_for('static',filename='di_health_icon/favicon-16x16.png')}}">
+    <link rel="manifest" href="{{url_for('static',filename='di_health_icon/manifest.json')}}">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="{{url_for('static',filename='di_health_icon/ms-icon-144x144.png')}}">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="{{url_for('static',filename='bootstrap/css/bootstrap.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='fa/css/all.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='main.css')}}">
+    
+    <title>SIGN UP-d.health</title>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row mynav_home">
+      <div class="col">
+        <nav class="navbar navbar-expand-lg">
+          <div class="container-fluid">
+            <a class="navbar-brand "  href="#"><img src="{{url_for('static',filename='Di.Health.png')}}" alt="di-health logo" width="100"></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/">About</a>
+                  </li>
+
+                  {%if session.get('user_id')== user.id%}
+                  <li class="nav-item">
+                    <a class="nav-link" href="/logout/">Log out</a>
+                  </li>
+
+                  {%elif session.get('admin_id')== admin.id%}
+                  <li class="nav-item">
+                    <a class="nav-link" href="/logout/">Log out</a>
+                  </li>
+                  {%else%}
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Log in
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="/signup/">User</a></li>
+                      <li><a class="dropdown-item" href="/login/">Admin</a></li>
+                    </ul>
+                  </li>
+                  
+                  {%endif%}  
+                </ul>
+                        
+              </div>
+              {%if session.get('user_id') != None or session.get('admin_id') != None%}
+              <div class="dropdown user-menu">
+                <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  {%if session.get('user_id')== user.id%}
+                  <img src="/static/{{user.profilepic}}" width="30" style="border-radius: 50%;">
+                  {%elif session.get('admin_id')== admin.id%}
+                  <img src="/static/{{admin.profilepic}}" width="30" style="border-radius: 50%;">
+                  {%endif%}
+                   
+                  {%if session.get('user_id')== None and session.get('admin_id')== None%}
+                  <p></p>
+                  {%elif session.get('user_id')== user.id%}
+                  Hi  {{user.firstname}}
+                  {%elif session.get('admin_id')== admin.id%}
+                  Hi  {{admin.name}}
+                  {%endif%}
+                </a>
+              
+                <ul class="dropdown-menu user-profile" style="border-radius: 0px;;">
+                  {%if session.get('user_id')== user.id%}
+                  <li><a class="dropdown-item" href="/profile/">Profile</a></li>
+                  {%elif session.get('admin_id')== admin.id%}
+                  <li><a class="dropdown-item" href="/admin/profile/">Profile</a></li>
+                  {%endif%}
+                  <li><a class="dropdown-item" href="/logout/">Logout</a></li>
+                </ul>
+              </div>
+              {%endif%}
+            </div>
+          </nav>
+        </div>
+      </div>
+      {%with messages=get_flashed_messages()%}
+      {%if messages%}
+        {%for message in messages%}
+          <div class="row">
+            <p class="alert alert-success">{{message}}</p>
+          </div>
+        {%endfor%}
+      {%endif%}
+    {%endwith%}
+
+        
+        {%block content%}
+
+        {%endblock content%}
+        <div class="row footer">
+          <div class="col-md-3 mx-3">
+            <p>&copy; 2024</p>
+            <p>All right reserved.</p>
+          </div>
+          <div class="col-md-2 mx-3">
+              
+
+          </div>
+          <div class="col-md-2 mx-3">
+
+          </div>
+          <div class="col-md-3 mx-3">
+              <p>di-health@gmail.com</p>
+              <p>08123456789</p>
+              <p>Lagos, Nigeria</p>
+          </div>
+        </div>
+  </div>
+    
+</body>
+<script src="{{url_for('static',filename='jquery.min.js')}}"></script>
+{#<script src="main.js"></script>#}
+<script>
+    $(document).ready(function(){
+       {% block query%}
+       
+       {%endblock query%}
+       
+   })
+</script>
+<script src="{{url_for('static',filename='bootstrap/js/bootstrap.bundle.js')}}"></script>
+</html>

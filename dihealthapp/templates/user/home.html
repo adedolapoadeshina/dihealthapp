@@ -1,0 +1,138 @@
+{%extends "myincludes/base_index.html"%}
+
+{%block content%}
+        <div class="row head">
+
+            <div class="col-md-3 m-3 mysidebar">
+                  
+                <div class="d-flex flex-column flex-shrink-0 p-3 " style="width: 280px; min-height: 400px;">
+
+                    <p class="sidebarhead">Hi, {{user.firstname}}</p>
+                    <ul class="nav nav-pills flex-column mb-auto mysidebar">
+                      <li class="">
+                            <a href="/home/" class="nav-link activee">
+                                <i class="fa fa-dashboard"></i>
+                              Dashboard
+                            </a>
+                      </li>
+                      <li>
+                        <a href="/profile/" class="nav-link ">
+                            <i class="fa-solid fa-user"></i>
+                          Profile
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/diet/suggest/daily/" class="nav-link">
+                            <i class="fa-solid fa-bowl-food text-center m-auto p-auto"></i>
+                          Daily Diet Suggestion
+                        </a>
+                      </li>
+                      {#<li>
+                        <a href="/diet/monthly/mealplan/" class="nav-link">
+                            <i class="fa fa-table"></i>
+                        View meal plan
+                        </a>
+                      </li>#}
+                      
+
+                      <li>
+                        <a href="#" class="nav-link">
+                            <i class="fa-solid fa-chart-gantt"></i>
+                        view your progress            
+                        </a>
+                      </li>
+
+
+                      <li>
+                        <a href="center_booking.html" class="nav-link">
+                            <i class="fa-regular fa-clipboard"></i>
+                          Add record
+                        </a>
+                      </li>
+                      
+                     
+                      <li>
+                        <a href="#" class="nav-link">
+                            <i class="fa-solid fa-envelope"></i>
+                        Contact us           
+                        </a>
+                      </li>
+
+                      
+
+                      <li>
+                        <a href="#" class="nav-link">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        Search App          
+                        </a>
+                      </li>
+                      
+                      <li>
+                        <a href="#" class="nav-link">
+                            <i class="fa fa-power-off"></i>
+                          Logout
+                        </a>
+                      </li>
+                    </ul>
+                 
+                </div>
+            </div>
+            <div class="col-md-8 homeback">
+                <div class="row">
+                  <div class="col-md-3 m-4 mt-5 dashbox">
+                    <i class="fa-regular fa-star icon m-5 p-4"></i>
+                    <div class="bg-success p-4">
+                        <b class="text-center">{{user_all|count}} User(s)</b><br>
+                        <a href="/admin/view/user/" class="text-decoration-none">View Users</a>
+                    </div>
+                </div>
+                <div class="col-md-3 m-4 mt-5 dashbox">
+                    <i class="fa-regular fa-heart m-5 p-4"></i>
+                    <div class="bg-warning p-4">
+                      <b class="text-center">{{meal_all|count}} Meal(s)</b><br>
+                      <a href="/admin/view/meal/" class="text-decoration-none">View Meals</a>
+                  </div>
+                </div>
+                <div class="col-md-3 m-4 mt-5 dashbox ">
+                    <i class="fa-solid fa-calculator m-5 p-4"></i>
+                    <div class="bg-primary p-4">
+                      <b class="text-center">{{diet_all|count}} Diet(s)</b><br>
+                      <a href="/admin/view/meal/"  class="text-decoration-none">View Diets</a>
+                  </div>
+                </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="row blog">
+            <div class="col-md-12">
+                <h3 class="text-center">Our Blogs</h3>
+            </div>
+            <div class="row m-3">
+            <div class="col-md-3">
+                <img src="homeback.jpg" alt="" class="img-fluid">
+            </div>
+            <div class="col-md-8">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis temporibus, itaque maxime eos id doloremque? Ad eius unde facilis. Facilis maiores sapiente amet earum minus consequuntur, reiciendis delectus temporibus voluptatum.
+            </div>
+            </div>
+            <div class="row m-3">
+                <div class="col-md-3">
+                    <img src="homeback.jpg" alt="" class="img-fluid">
+                </div>
+                <div class="col-md-8">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis temporibus, itaque maxime eos id doloremque? Ad eius unde facilis. Facilis maiores sapiente amet earum minus consequuntur, reiciendis delectus temporibus voluptatum.
+                </div>
+                </div>
+                <div class="row m-3">
+                    <div class="col-md-3">
+                        <img src="homeback.jpg" alt="" class="img-fluid">
+                    </div>
+                    <div class="col-md-8">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis temporibus, itaque maxime eos id doloremque? Ad eius unde facilis. Facilis maiores sapiente amet earum minus consequuntur, reiciendis delectus temporibus voluptatum.
+                    </div>
+                    </div>
+
+        </div>
+
+{%endblock%}

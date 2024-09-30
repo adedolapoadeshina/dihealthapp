@@ -1,0 +1,121 @@
+{%extends "myincludes/base_index.html"%}
+
+{%block content%}
+<div class="row head">
+
+    <div class="col-md-3 m-3 mysidebar">
+          
+        <div class="d-flex flex-column flex-shrink-0 p-3 " style="width: 280px; min-height: 400px;">
+
+            <p class="sidebarhead">Hi, Adedolapo</p>
+            <ul class="nav nav-pills flex-column mb-auto mysidebar">
+              <li class="">
+                    <a href="/home/" class="nav-link">
+                        <i class="fa fa-dashboard"></i>
+                      Dashboard
+                    </a>
+              </li>
+              <li>
+                <a href="/profile/" class="nav-link ">
+                    <i class="fa-solid fa-user"></i>
+                  Profile
+                </a>
+              </li>
+              <li>
+                <a href="/diet/suggest/daily/" class="nav-link">
+                    <i class="fa-solid fa-bowl-food text-center m-auto p-auto"></i>
+                  Daily Diet Suggestion
+                </a>
+              </li>
+              <li>
+                <a href="/diet/monthly/mealplan/" class="nav-link activee">
+                    <i class="fa fa-table"></i>
+                View meal plan
+                </a>
+              </li>
+              
+
+              <li>
+                <a href="#" class="nav-link">
+                    <i class="fa-solid fa-chart-gantt"></i>
+                view your progress            
+                </a>
+              </li>
+
+
+              <li>
+                <a href="center_booking.html" class="nav-link">
+                    <i class="fa-regular fa-clipboard"></i>
+                  Add record
+                </a>
+              </li>
+              
+             
+              <li>
+                <a href="#" class="nav-link">
+                    <i class="fa-solid fa-envelope"></i>
+                Contact us           
+                </a>
+              </li>
+
+              
+
+              <li>
+                <a href="#" class="nav-link">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                Search App          
+                </a>
+              </li>
+              
+              <li>
+                <a href="#" class="nav-link">
+                    <i class="fa fa-power-off"></i>
+                  Logout
+                </a>
+              </li>
+            </ul>
+         
+        </div>
+    </div>
+    <div class="col-md-8 homeback">
+        <div class="row body_home">
+
+            <div class="col-md-12 m-3 ms-2 p-auto">
+                <h3 class="text-center">MEAL PLAN</h3>
+                <p>Here is your updated meal plan for the next 30days:-</p>
+            </div>
+            <div class="col-md-12">
+                <div class="row p-2 table-responsive-sm">
+                    <table class="table table-custom">
+                        <tr>
+                            <th>DAY</th>
+                            <th>MEAL TIME</th>
+                            <th>LUNCH</th>
+                            <th>DINNER</th>
+                        </tr>
+                        <tr>
+                          {%for meal in meals%}
+                            <td>DAY {{loop.index}}</td>
+                            <td>Appetizer:<br>
+                                Main:<br>
+                                Desert:
+                            </td>
+                            <td>Appetizer:<br>
+                                Main:<br>
+                                Desert:
+                            </td>
+                            <td>Appetizer:<br>
+                                Main:<br>
+                                Desert:</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+        
+
+ {%endblock%}

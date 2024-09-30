@@ -1,0 +1,307 @@
+/*div{
+
+    border:1px solid black;
+    min-height:100px;
+}*/
+
+.mynav{
+    background-color: #E8F5E0 ;
+    color: #31081F;
+    position:sticky;
+    top:0px;
+    z-index: 100;
+}
+.mynav_home{
+    background-color:#31081F ;
+    position:sticky;
+    top:0px;
+    z-index: 100;
+}
+.mynav_home a{
+    color:#b4d773
+}
+
+.mynav_home a:hover{
+    color: #E8F5E0;
+}
+
+.mybanner, .newsletter{
+    position: relative;
+    background-color: #31081F;
+}
+.mybanner p i{
+    font-size: 30px;
+    font-weight: 200;
+    color:#0d100b;
+    position:absolute;
+    top:50px;
+    left:30px;
+    right:10px;
+}
+.caro_overlay{
+    z-index: 20;
+    background-color: rgba(100,255,100,0.3);
+}
+.newsletter p{
+    font-size: 32px;
+    color:#E8F5E0;
+    background-color: #31081F;
+   
+}
+#registerMe{
+    font-size:20px;
+    background: none;
+    color: #80B918;
+}
+.aboutus{
+    background-color:#9ecc48;
+    color:#31081F;
+    box-shadow:2px 2px 4px 2px #31081F;
+}
+.aboutus p{
+    font-size: 18px;
+    line-height: 35px;
+    font-weight: 200;
+    text-shadow: px 1px 1px #31081F;
+}
+.aboutus h3{
+    font-size: 50px;
+}
+.myAccord{
+    background-color:#E8F5E0;
+    color: #31081F;
+}
+.faq{
+    background-color:#E8F5E0;
+    color: #31081F;
+    
+}
+.faq h3{
+    font-size: 40px;
+}
+.mycontact{
+    background-color: #E8F5E0;
+    color:#31081F;
+    font-size: 1.5vw;
+}
+.mycontact h2{
+    font-size: 3.5vw;
+}
+.footer{
+    background-color: #31081F;
+    color: #E8F5E0;
+}
+.body{
+    background-color:#f2f6ef;
+    color: #0d100b;
+}
+.head{
+    background-color: #f2f6ef;
+    color:#31081F;
+    font-size:20px;
+}
+.myneeds1{
+    font-size: 30px;
+}
+.mysidebar{
+    background-color: #31081F;
+    border-radius: 3%;
+}
+.mysidebar li a{
+    color: #E8F5E0;
+}
+#mealcolor{
+    color: #97d720;
+    font-weight: 700;
+    font-size: larger;
+}
+.mysidebar li a:hover{
+    color:#31081F;
+    background-color: #d5ebad;
+}
+.mysidebaradmin li a{
+    color:#f2f6ef;
+    font-size: 18px;
+}
+.mysidebaradmin li a:hover{
+    color:#31081F;
+    background-color: #b4d773;
+}
+.mysidebar .activee{
+    color:#31081F;
+    background-color: #b4d773;
+}
+.sidebarhead{
+    font-size: 30px;
+    color:#80B918
+}
+.dashbox{
+    min-height: 100px;
+    background-color: aliceblue;
+    box-shadow: 0px 0px 5px 2px #dde4d2;
+    width: 27%;
+}
+.dashbox i{
+    font-size: 50px;
+}
+.dashbox p{
+    font-size: 20px;
+}
+.dashbox div b{
+    font-size: 35px;
+}
+.dashbox div a{
+    color: #f2f6ef;
+}
+.homeback{
+    background-image: linear-gradient(to right,rgb(213, 239, 205,2),#f2f6ef00),url('/static/homeback.jpg');
+    background-size: cover;
+}
+.up_form{
+    color: #31081F;
+    background-color: #f2f6ef;
+}
+.up_form h2{
+    font-size: 30px;
+}
+.up_form div{
+    min-height: 50px;
+    font-size: 20px;
+}
+.my_home_body{
+    background-color:#f2f6ef ;
+    color: #0d100b;
+}
+.my_home_body .mylabelhead{
+    font-size: 1.9vw;
+}
+.my_home_body label{
+   font-size: 1.4vw;
+}
+.myh1{
+    color: #31081F;
+    font-size: 1vw;
+}
+.personal_home i{
+    font-size: 27px;
+    color: #31081F;
+}
+.personal_home p{
+    font-size:15px;
+    font-weight: 700;
+    color: #31081F;
+}
+.personal_home a{
+    text-decoration: none;
+}
+.personal_home i:hover{
+    color: #80B918;
+}
+.personal_home p:hover{
+    color: #80B918;
+}
+.profilepic{
+    background-color:none;
+    min-height: 50px;
+
+}
+
+.userprofile{
+    color:#31081F;
+}
+.user-profile{
+    background-color:#31081F;
+    color: #97d720;
+}
+.user-profile a{
+    color: #97d720;
+}
+
+.profilehead{
+    border-left: 8px solid #31081F;
+}
+
+.profileoption{
+    background-color:#E8F5E0;
+    color: #31081F;
+    font-size: 30px;
+}
+.subbox{
+    border: 5px solid #31081F;
+    min-height: 150px;
+    width: 90%;
+}
+.subbox .headingg{
+    color: #31081F;
+    font-size: 50px;
+    font-weight: 500;
+}
+.sublist{
+    background-color: #f2f6ef
+}
+.profileoption a{
+    color: #31081F;
+}
+.profileoption a:hover{
+    color:#80B918;
+}
+.dietary{
+    color: #E8F5E0;
+    background-color: #31081F;
+    min-height: 300px;
+    margin: auto;
+    max-width:60%;
+    box-shadow: 0px 0px 10px 2px #2d4109;
+}
+.dietary p b{
+    color: #80B918;
+}
+.diet_pro{
+    background-image:linear-gradient(to right,rgb(213, 239, 205,3),#f2f6ef00);
+    color: #31081F;
+}
+.btn-custom:hover{
+    background-color: #80B918;
+    color: #31081F;
+}
+.btn-custom{
+    background-color:#31081F;
+    color: #E8F5E0;
+}
+.btn-calory{
+    background-color:#97d720;
+    color: #31081F;
+}
+.btn-calory:hover{
+    background-color:#31081F;
+    color: #97d720;
+}
+.table-custom{
+    background-color: #E8F5E0;
+    color: #31081F;
+    border-collapse: separate;
+    border-spacing: 1px;
+}
+.table-custom th{
+    background-color: #31081F;
+    color: #9ecc48;
+}
+.table-custom td{
+    background-color: #f2f6ef;
+    color: #31081F;
+    border: 1px solid #2d4109;
+    padding: 10px;
+}
+.table_admin{
+    font-size: 15px;
+}
+.sign_banner{
+    background-color:#E8F5E0;
+    color: #31081F;
+    background-image: linear-gradient(to right,rgb(213, 239, 205,2),#f2f6ef00),url('salad.jpg');
+}
+.log_banner{
+    background-color:#E8F5E0;
+    color: #31081F;
+    background-image: linear-gradient(to right,rgb(213, 239, 205,2),#f2f6ef00),url('fish.jpg');
+}

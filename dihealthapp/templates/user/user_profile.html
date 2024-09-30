@@ -1,0 +1,127 @@
+
+{% extends "myincludes/base_index.html" %}
+{%block content%}
+        <div class="row head">
+
+            <div class="col-md-3 m-3 mysidebar">
+                  
+                <div class="d-flex flex-column flex-shrink-0 p-3 " style="width: 280px; min-height: 400px;">
+
+                    <p class="sidebarhead">Hi, Adedolapo</p>
+                    <ul class="nav nav-pills flex-column mb-auto mysidebar">
+                      <li class="">
+                            <a href="/home/" class="nav-link ">
+                                <i class="fa fa-dashboard"></i>
+                              Dashboard
+                            </a>
+                      </li>
+                      <li>
+                        <a href="/profile/" class="nav-link activee">
+                            <i class="fa-solid fa-user"></i>
+                          Profile
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/diet/suggest/daily/" class="nav-link">
+                            <i class="fa-solid fa-bowl-food text-center m-auto p-auto"></i>
+                          Daily Diet Suggestion
+                        </a>
+                      </li>
+                      {#<li>
+                        <a href="/diet/monthly/mealplan/" class="nav-link">
+                            <i class="fa fa-table"></i>
+                        View meal plan
+                        </a>
+                      </li>#}
+                      
+
+                      <li>
+                        <a href="#" class="nav-link">
+                            <i class="fa-solid fa-chart-gantt"></i>
+                        view your progress            
+                        </a>
+                      </li>
+
+
+                      <li>
+                        <a href="center_booking.html" class="nav-link">
+                            <i class="fa-regular fa-clipboard"></i>
+                          Add record
+                        </a>
+                      </li>
+                      
+                     
+                      <li>
+                        <a href="#" class="nav-link">
+                            <i class="fa-solid fa-envelope"></i>
+                        Contact us           
+                        </a>
+                      </li>
+
+                      
+
+                      <li>
+                        <a href="#" class="nav-link">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        Search App          
+                        </a>
+                      </li>
+                      
+                      <li>
+                        <a href="#" class="nav-link">
+                            <i class="fa fa-power-off"></i>
+                          Logout
+                        </a>
+                      </li>
+                    </ul>
+                 
+                </div>
+            </div>
+            <div class="col-md-8 homeback">
+                <div class="row userprofile">
+                    <div class="col-md-2 m-2 profilehead">
+                        <h3>USER PROFILE</h3>
+                    </div>
+                    <div class="col-md-2 m-5   profilepic">
+                        <img src="/static/{{user.profilepic}}" alt="profilepic" class="img-fluid">
+                    </div>
+                    <div class="col-md-6 p-4 fs-4">
+                        <p>NAME:<span>{{user.lastname}}</span> <span>{{user.firstname}}</span></p>
+                        {%if user.gender=="female"%}
+                        <p>SEX:<span> Female</span></p>
+                        {%else%}
+                        <p>SEX:<span> Male</span></p>
+                        {%endif%}
+                        <p>DIET TYPE: <span></span></p>
+                        <p>SUBSCRIPTION: <span></span></p>
+        
+                        <a href="/user/{{user.id}}/update/" class="btn btn-calory">Edit Profile</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="row my-2">
+                        <div class="col profileoption">
+                            <a href="#" class="text-decoration-none sub"><p>Subscription</p></a>
+                            <div class="row sublist ">
+                                <p> SUBSCRIPTION ID:<span> WL/11/2022/</span></p>
+                                <p>TYPE:<span>INTENSE WEIGHT LOSS</span></p>
+                                <p>DURATION: <span>2Months</span></p>
+                                <p>EXPIRATION: <span>1st Jan. 2025</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row my-2">
+                        <div class="col profileoption">
+                            <a href="#" class="text-decoration-none prorec"><p>Add record</p></a>
+                        </div>
+                    </div>
+                    <div class="row my-2">
+                        <div class="col profileoption">
+                            <a href="#" class="text-decoration-none sub"><p>View Progress</p></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+{%endblock%}
